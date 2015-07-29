@@ -17,7 +17,7 @@ exports.register = function(server, options, next){
 
           //stop if you can't find the user
           if(userMongo === null){
-            return reply({userExists: false});
+            return reply({userExist: false});
           } 
 
           //so now the user exist, please check the password
@@ -27,8 +27,6 @@ exports.register = function(server, options, next){
             }
 
           //password is correct, create new session in the sessions collection
-
-
 
             var randomKeyGenerator = function() {
               return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 

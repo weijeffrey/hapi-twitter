@@ -16,27 +16,40 @@ APIaction.prototype.createUser = function(){
           email: email,
           username: userName,
           password: password,
-          // dateCreated: new Date(),
+          dateCreated: new Date(),
         }
     },  
     dataType: 'json',
     success: function(response){
-      if(response.userExist){alert("Account already exist. Forgot password?")}
+      if(response.userExist){alert("Account already exist. Forgot password?")} else {alert("Congratuations! Account created.")}
     }
   })
 }
 
 
-// APIaction.prototype.userLogIn = function(){
-//   $.ajax({
-//     type: 'GET',
-//     url: '/'+memberUserName,
-//     dataType: 'json',
-//     success: function(response){
-//       console.log(response)
-//     }
-//   })
-// }
+APIaction.prototype.userLogIn = function(){
+  $.ajax({
+    type: 'POST',
+    url: '/sessions',
+    data:{
+      user:{
+        username: memberuserName,
+        password: memberpassword,
+      }
+    },
+    dataType: 'json',
+    success: function(response){
+      if(response.userExist == false){ 
+        return alert("No record found. Please sign up.")
+      }
+      if(response.authorized == false){ 
+        return alert("Username or Password not correct, please check again.")
+      }
+
+      return alert("Sign in successful!")
+    }
+  })
+}
 
 
 var apiAction = new APIaction
@@ -69,12 +82,13 @@ $('.signUp').on('click',function(){
 })
 
 //user LogIn
-memberUserName = $('memberUserName').val();
-memberPassWord = $('memberPassWord').val();
+
 
 
 $('.submit').on('click', function(){
-  apiAction.userLogIn()
+  memberuserName = $('.memberuserName').val();
+  memberpassword = $('.memberpassword').val();
+  apiAction.userLogIn(memberuserName, memberpassword)
 
 })
 
