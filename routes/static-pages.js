@@ -6,7 +6,6 @@ exports.register = function(server,options,next){
         path: '/',
         handler: function(request, reply){
         reply.view("index"); // going to look for templates/index.html
-
         }
       }
       ,
@@ -19,6 +18,8 @@ exports.register = function(server,options,next){
           }
         }
       }
+      ,
+      
   ]);
 
   next();
