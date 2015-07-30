@@ -64,29 +64,22 @@ exports.register = function(server, options, next){
         //calling the function
         Auth.authenticated(request,callback);
       }
-    }
+    },
     // {
     //   method: 'DELETE',
     //   path: '/sessions',
     //   handler: function(request, reply){
+    //     Auth.authenticated(request,function(result){
+    //       var db = request.server.plugins
 
-    //     var session = request.session.get('hapi_twitter_session');
-    //     var db = request.server.plugins['hapi-mongodb'].db;
+    //       if ({authenticated: false}){
 
-    //     //if there is no session, then user have already logged out
-    //     if(!session) {
-    //       return reply({'message': 'Already logged out.'})
-    //     }
-
-    //     //if not, then sign out the user or deleting the session
-    //     db.collection('sessions').remove({session_id:session.session_id.toString()}, function(err, writeResult){
-    //       if(err) {return reply('Internal MongoDB error')
     //       }
-          
-    //       reply (writeResult);
     //     })
     //   }
+
     // }
+    
 
     ]);
 
