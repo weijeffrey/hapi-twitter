@@ -16,18 +16,21 @@ APIaction.prototype.createUser = function(){
           email: email,
           username: userName,
           password: password,
-          dateCreated: new Date(),
+          // dateCreated: new Date(),
         }
     },  
     dataType: 'json',
     success: function(response){
-      console.log(response);
       if(response.userExist){
         alert("Account already exist. Forgot password?")
       } else {
         alert("Congratuations! Account created.")
       }
+    }, 
+    error: function(xhr, status, data){
+      console.log(xhr)
     }
+
   })
 };
 
