@@ -12,9 +12,13 @@ module.exports.authenticated = function(request, callback){
   //2. look into DB to find matching session_id
 
   var cookie = request.session.get('hapi_twitter_session');
+  var msg = "access denied"
 
   if(!cookie){
-    return callback({authenticated: false})
+    return callback({
+      authenticated: false,
+      message: msg
+    })
   }
 
   var session_id = cookie.session_id;
@@ -23,7 +27,10 @@ module.exports.authenticated = function(request, callback){
 
   db.collection('sessions').findOne({session_id: session_id}, function(err, session){
     if (!session){
-      return callback({authenticated: false})
+      return callback({
+        authenticated: false,
+        message: msg
+      })
     }
 
     callback({authenticated: true, user_id: session.user_id})

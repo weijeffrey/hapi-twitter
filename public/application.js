@@ -21,11 +21,15 @@ APIaction.prototype.createUser = function(){
     },  
     dataType: 'json',
     success: function(response){
-      if(response.userExist){alert("Account already exist. Forgot password?")} else {alert("Congratuations! Account created.")}
+      console.log(response);
+      if(response.userExist){
+        alert("Account already exist. Forgot password?")
+      } else {
+        alert("Congratuations! Account created.")
+      }
     }
   })
-}
-
+};
 
 APIaction.prototype.userLogIn = function(){
   $.ajax({
@@ -52,7 +56,7 @@ APIaction.prototype.userLogIn = function(){
 }
 
 
-var apiAction = new APIaction
+var apiAction = new APIaction;
 
 
 // creatUser
@@ -62,16 +66,16 @@ $('#memberSection').on('click',function(){
 
 $('.signUp').on('click',function(){
   firstName = $('#firstName').val();
-  lastName = $('#lastName').val();
-  email = $('#email').val();
-  userName = $('#userName').val();
-  password = $('#password').val();
+  lastName  = $('#lastName').val();
+  email     = $('#email').val();
+  userName  = $('#userName').val();
+  password  = $('#password').val();
   
-  if((firstName !== "") && (lastName !== "") && (userName !== "") && (email !== "") && (password !== "")) {
+  // if((firstName !== "") && (lastName !== "") && (userName !== "") && (email !== "") && (password !== "")) {
     apiAction.createUser(firstName,lastName,email,userName,password);
-  } else {
-    alert('At least one of the input fields is empty!');
-    }
+  // } else {
+  //   alert('At least one of the input fields is empty!');
+  //   }
   
   $('#firstName').val("");
   $('#lastName').val("");

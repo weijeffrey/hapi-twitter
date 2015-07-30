@@ -46,7 +46,7 @@
 .slider {
   position: relative;
   width: 100%;
-  height: 470px;
+  height: 500px;
   margin-top: 60px;
   border-bottom: 2px solid #ddd;
 }
@@ -64,29 +64,41 @@
 }
 
 .slide-img {
-  margin-top: 50px;
+  margin-top: 75px;
   text-align: right;
+
 }
 
 .slide-para h1, p{
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
-
-
-
-/*.slide-feature {
-  text-align: center;
+.slide-main {
   background-image: url('/public/assets/valet_slide_1.jpeg');
-  height: 470px;
+  height: 500px;
 }
 
-.slide-feature img {
-  margin-top: 112px;
-  margin-bottom: 28px;
+.slide-team {
+  background-image: url('/public/assets/valet_slide_2.jpg');
+  height: 500px;
 }
 
-.slide-feature a {
+.slide-carParks {
+  background-image: url('/public/assets/valet_slide_3.jpg');
+  height: 500px;
+}
+
+.slide-insurance {
+  background-image: url('/public/assets/valet_slide_5.jpeg');
+  height: 500px;
+}
+
+.slide-DYH {
+  background-image: url('/public/assets/valet_slide_2.jpg');
+  height: 500px;
+}
+
+.slide-main a, .slide-team a, .slide-carParks a ,.slide-insurance a, .slide-DYH a {
   display: block;
   color: #6fc5e0;
   
@@ -96,6 +108,7 @@
   
   font-size: 20px;
 }*/
+
 
 /*slide navigation*/
 

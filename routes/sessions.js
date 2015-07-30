@@ -65,20 +65,7 @@ exports.register = function(server, options, next){
         Auth.authenticated(request,callback);
       }
     },
-    // {
-    //   method: 'DELETE',
-    //   path: '/sessions',
-    //   handler: function(request, reply){
-    //     Auth.authenticated(request,function(result){
-    //       var db = request.server.plugins
-
-    //       if ({authenticated: false}){
-
-    //       }
-    //     })
-    //   }
-
-    // }
+    
     
 
     ]);
