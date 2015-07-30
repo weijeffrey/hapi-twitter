@@ -1,4 +1,5 @@
 var Bcrypt = require('bcrypt');
+var Auth = require('./auth')
 
 exports.register = function(server, options, next){
 
@@ -50,8 +51,42 @@ exports.register = function(server, options, next){
 
         });
       }
-
+    },
+    {
+      method: 'GET',
+      path: '/authenticated',
+      handler:function(request, reply){
+        //usually, we write all the logics here. but in this case, we are going to write it somewhere else
+        //such that other routes can use this method
+        var callback = function(result){
+          reply(result)
+        };
+        //calling the function
+        Auth.authenticated(request,callback);
+      }
     }
+    // {
+    //   method: 'DELETE',
+    //   path: '/sessions',
+    //   handler: function(request, reply){
+
+    //     var session = request.session.get('hapi_twitter_session');
+    //     var db = request.server.plugins['hapi-mongodb'].db;
+
+    //     //if there is no session, then user have already logged out
+    //     if(!session) {
+    //       return reply({'message': 'Already logged out.'})
+    //     }
+
+    //     //if not, then sign out the user or deleting the session
+    //     db.collection('sessions').remove({session_id:session.session_id.toString()}, function(err, writeResult){
+    //       if(err) {return reply('Internal MongoDB error')
+    //       }
+          
+    //       reply (writeResult);
+    //     })
+    //   }
+    // }
 
     ]);
 

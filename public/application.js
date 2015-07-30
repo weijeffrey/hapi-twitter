@@ -82,15 +82,14 @@ $('.signUp').on('click',function(){
 })
 
 //user LogIn
-
-
-
 $('.submit').on('click', function(){
   memberuserName = $('.memberuserName').val();
   memberpassword = $('.memberpassword').val();
   apiAction.userLogIn(memberuserName, memberpassword)
 
 })
+
+//
 
 
 
