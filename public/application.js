@@ -16,7 +16,7 @@ APIaction.prototype.createUser = function(){
           email: email,
           username: userName,
           password: password,
-          // dateCreated: new Date(),
+          dateCreated: new Date(),
         }
     },  
     dataType: 'json',
@@ -74,11 +74,11 @@ $('.signUp').on('click',function(){
   userName  = $('#userName').val();
   password  = $('#password').val();
   
-  // if((firstName !== "") && (lastName !== "") && (userName !== "") && (email !== "") && (password !== "")) {
+  if((firstName !== "") && (lastName !== "") && (userName !== "") && (email !== "") && (password !== "")) {
     apiAction.createUser(firstName,lastName,email,userName,password);
-  // } else {
-  //   alert('At least one of the input fields is empty!');
-  //   }
+  } else {
+    alert('At least one of the input fields is empty!');
+    }
   
   $('#firstName').val("");
   $('#lastName').val("");

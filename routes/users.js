@@ -57,6 +57,7 @@ exports.register = function(server, options, next){
               email: Joi.string().email().max(100).required(),
               username: Joi.string().min(1).max(40).required(),
               password: Joi.string().min(1).max(40).required(),
+              dateCreated: Joi.date().required()
             }
           }
         }
